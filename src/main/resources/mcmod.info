@@ -5,7 +5,7 @@
     "description": "Simply teleport home to your bed with an enderpearl",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/pearl-home",
     "updateUrl": "",
     "authorList": ["uberifix"],
     "credits": "\nThe pxl8 community, for being mostly cool \nHatsune Miku for making minecraft",

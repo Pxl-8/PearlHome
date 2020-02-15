@@ -87,6 +87,9 @@ public class TeleportEvent {
             try { home = EntityPlayer.getBedSpawnLocation(targetWorld, player.getBedLocation(targetDim), player.isSpawnForced(targetDim));
             } catch (NullPointerException e) {}
 
+            if(player.isSneaking() && Conf.tp_config.TELEPORT_SPAWN_ON_SNEAK) { home = null; }
+            if(player.isInWater() && Conf.tp_config.TELEPORT_SPAWN_IN_WATER) { home = null; }
+
             if(home != null) {
                 if(currentDim != targetDim) {
                     server.getPlayerList().transferPlayerToDimension((EntityPlayerMP) player, targetDim, new PearlHomeTeleporter(worldServer, home.getX(), home.getY(), home.getZ()));

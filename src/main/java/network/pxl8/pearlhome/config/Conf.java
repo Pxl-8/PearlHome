@@ -1,6 +1,5 @@
 package network.pxl8.pearlhome.config;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -31,6 +30,11 @@ public class Conf {
         public Boolean SAFE_TELEPORT = false;
         @Config.Comment({"Will force the player to spawn on the top most block of the world spawn point", "Can disable this if you know your spawn point is safe, otherwise players may spawn underground"})
         public Boolean SPAWN_ON_SURFACE = true;
+
+        @Config.Comment({"Will force teleport to go to world spawn instead of bed, useful if you have a spawn town or trading post", "Will not work if REQUIRE_SNEAKING is toggled"})
+        public Boolean TELEPORT_SPAWN_ON_SNEAK = false;
+        @Config.Comment({"Will force teleport to go to world spawn instead of bed, useful if you have a spawn town or trading post", "Will not work if REQUIRE_NOT_IN_WATER is toggled"})
+        public Boolean TELEPORT_SPAWN_IN_WATER = false;
     }
 
     public static class MiscConf {
@@ -38,7 +42,7 @@ public class Conf {
         public Boolean ENABLE_TIPS = true;
         @Config.Comment({"Will send localised tips in the players language", "REQUIRES the mod to be installed client side and lang files in the correct language to exist"})
         public Boolean ENABLE_LOCALISED_TIPS = false;
-        @Config.Comment({"Will force set the players spawn point whenever they click on a bed, regardless if its day or night", "This will permanently set spawn and breaking the bed will not reset it"})
+        @Config.Comment({"Will force set the players spawn point whenever they click on a bed, regardless if its day or night", "This will permanently set spawn until another spawn point is set, breaking the bed will not reset it"})
         public Boolean FORCE_SET_HOME = false;
         @Config.Comment({"Sends a message tip with the coords of the set spawnpoint, REQUIRES client to have the mod", "Otherwise will just send a generic set spawn point message"})
         public Boolean FORCE_SET_HOME_TIP_INFO = false;

@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import network.pxl8.pearlhome.lib.LibMeta;
 import network.pxl8.pearlhome.proxy.Proxy;
 
-@Mod(modid = LibMeta.MOD_ID, version = LibMeta.VERSION)
+@Mod(modid = LibMeta.MOD_ID, version = LibMeta.VERSION, acceptableRemoteVersions = "*")
 public class PearlHome {
     @Mod.Instance
     public static PearlHome instance;
