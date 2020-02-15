@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "pearlhome",
+    "name": "Pearl Home",
+    "description": "Simply teleport home to your bed with an enderpearl",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["uberifix"],
+    "credits": "\nThe pxl8 community, for being mostly cool \nHatsune Miku for making minecraft",
+    "logoFile": "pearlhome.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
