@@ -1,0 +1,44 @@
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader="javafml"
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[28,)"
+# A URL to refer people to when problems occur with this mod
+issueTrackerURL="https://github.com/Pxl-8/StoneCatalysts/issues/"
+# A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]]
+# The modid of the mod
+modId="pearlhome"
+# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
+version="${file.jarVersion}"
+ # A display name for the mod
+displayName="PearlHome"
+# A URL to query for updates for this mod. See the JSON update specification <here>
+#updateJSONURL="https://pxl8.network/mods"
+# A URL for the "homepage" for this mod, displayed in the mod UI
+#displayURL="https://mods.pxl8.network/ColouredChat"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/pearlhome"
+# A file name (in the root of the mod JAR) containing a logo for display
+logoFile="pearlhome.png"
+# A text field displayed in the mod UI
+credits='''
+The pxl8 community, for being mostly cool
+Hatsune Miku for making minecraft
+'''
+# A text field displayed in the mod UI
+authors="uberifix"
+# The description text for the mod (multi line!)
+description='''
+Simply teleport home to your bed with an enderpearl
+'''
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.forge]]
+    # the modid of the dependency
+    modId="forge"
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true
+    # The version range of the dependency
+    versionRange="[28,)"
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
