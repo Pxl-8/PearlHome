@@ -30,7 +30,7 @@ public class TeleportEvent {
         PlayerEntity player = event.getPlayer();
         Item item = event.getItemStack().getItem();
 
-        if(item.equals(Configuration.USE_NETHER_STAR.get() ? Items.NETHER_STAR : Items.ENDER_EYE) && player.isSneaking() && Configuration.PORTABLE_ENDER_CHEST.get()) {
+        if(item.equals(Configuration.USE_NETHER_STAR.get() ? Items.NETHER_STAR : Items.ENDER_EYE) && player.isCrouching() && Configuration.PORTABLE_ENDER_CHEST.get()) {
             EnderChestInventory enderChest = player.getInventoryEnderChest();
 
             player.openContainer(new SimpleNamedContainerProvider((id, playerInv, playerEnt) ->
@@ -72,7 +72,7 @@ public class TeleportEvent {
                 sendTip(player, TextFormatting.RED, "text.pearlhome.teleport.warn.burning", "Cannot teleport while on fire!");
                 return;
             }
-            if(!player.isSneaking() && Configuration.REQUIRE_SNEAKING.get()) {
+            if(!player.isCrouching() && Configuration.REQUIRE_SNEAKING.get()) {
                 sendTip(player, TextFormatting.RED, "text.pearlhome.teleport.warn.sneaking", "Sneak to teleport home");
                 return;
             }
@@ -82,7 +82,7 @@ public class TeleportEvent {
             try { home = player.getBedLocation(targetDim); }
             catch (NullPointerException e) {}
 
-            if(player.isSneaking() && Configuration.TELEPORT_SPAWN_ON_SNEAK.get()) { home = null; }
+            if(player.isCrouching() && Configuration.TELEPORT_SPAWN_ON_SNEAK.get()) { home = null; }
             if(player.isInWater() && Configuration.TELEPORT_SPAWN_IN_WATER.get()) { home = null; }
 
             if(home != null) {
@@ -106,7 +106,7 @@ public class TeleportEvent {
         if(world.getBlockState(pos).isIn(BlockTags.BEDS) && Configuration.FORCE_SET_HOME.get()) {
             if(world.getDayTime()%24000 < (world.isRaining() ? 12010 : 12542) || world.getDayTime()%24000 > (world.isRaining() ? 23992 : 23460)) {
                 event.setUseBlock(Event.Result.DENY);
-                player.setSpawnPoint(pos, true, currentDim);
+                player.setSpawnPoint(pos, true, true, currentDim);
 
                 if(Configuration.EXTRA_INFO.get() && Configuration.ENABLE_TIPS.get() && Configuration.LOCALISATION.get()) {
                     player.sendStatusMessage(new TranslationTextComponent("text.pearlhome.misc.setspawn_info", pos.getX(), pos.getY(), pos.getZ())
